@@ -1,0 +1,17 @@
+{
+    "status": "OK",
+    "computadoras": [
+        {
+            "identificador": 1,
+            "SO": "Linux",
+            "memoriaRam": "DDR3",
+            "discoRigido": "SATA 1"
+        },
+        {
+            "identificador": 2,
+            "SO": "Windows",
+            "memoriaRam": "DDR2",
+            "discoRigido": "SATA 3"
+        }
+    ]
+}

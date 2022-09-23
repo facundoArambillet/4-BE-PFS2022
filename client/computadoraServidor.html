@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/computadora.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div id="letrasNav" class="container-fluid">
+          <a class="navbar-brand" href="./index.html">CompuMundo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div  class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./computadoraMockeo.html">Compu Mockeo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./computadoraServidor.html">Compu Servidor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./tecnicos.html"> Tecnicos Servidor</a>
+              </li>
+          </div>
+        </div>
+      </nav>
+
+    <h1 id="titulo">Arme Su Computadora</h1>
+    <table>
+        <thead>
+            <td>Identificador</td>
+            <td>SO</td>
+            <td>Memoria Ram</td>
+            <td>Disco Rigido</td>
+            <td>Tarjeta Grafica</td>
+        </thead>
+        <thead>
+            <td><input type="text" name="" value="" id="identificador"></td>
+            <td><input type="text" name="" value="" id="so"></td>
+            <td><input type="text" name="" value="" id="memoriaRam"></td>
+            <td><input type="text" name="" value="" id="discoRigido"></td>
+            <td><input type="text" name="" value="" id="tarjetaGrafica"></td>
+        </thead>
+        <thead>
+            <td colspan=4> <button type="button" id="btnAgregar">Agregar</button>
+            </td>
+        </thead>
+        <tbody id="tblComputadoras"></tbody>
+    </table>
+</body>
+
+<script src="./jss/computadoraServidor.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+</html>
