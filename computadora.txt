@@ -1,0 +1,23 @@
+
+undefined,undefined,
+            undefined,undefined,undefined
+undefined,undefined,
+            undefined,undefined,undefined
+undefined,undefined,
+            undefined,undefined,undefined
+undefined,undefined,
+            undefined,undefined,undefined
+undefined,undefined,
+            undefined,undefined,undefined
+undefined,undefined,
+            undefined,undefined,undefined
+undefined,undefined,
+            undefined,undefined,undefined
+5,Solaris,
+            DDR 3,SATA 3,RTX
+5,Solaris,
+            DDR 3,SATA 3,RTX
+5,Solaris,
+            DDR 3,SATA 3,RTX
+5,Solaris,
+            DDR 3,SATA 3,RTX
