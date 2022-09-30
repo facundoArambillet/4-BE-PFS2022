@@ -22,6 +22,10 @@ export class Computadora2Service {
         }
     }
 
+    private saveComputadoras() {
+        
+    }
+
     public getComputadoras(): Computadora2[] {
         return this.listaComputadoras;
     }

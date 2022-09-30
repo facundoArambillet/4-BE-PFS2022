@@ -29,7 +29,7 @@ async function agregar() {
 
     if (respuesta.ok) {
         computadoras.push(renglon);
-        load()
+        load();
     } else {
         console.log('Hubo un error');
     }
@@ -58,10 +58,10 @@ async function load() {
     computadoras = [];
     let respuesta = await fetch('/computadora2')
     if (respuesta.ok) {
-        let t = await respuesta.json()
-        computadoras = t
+        let t = await respuesta.json();
+        computadoras = t;
     }
-    console.log(computadoras)
+    console.log(computadoras);
     mostrarComputadoras();
 }
 
