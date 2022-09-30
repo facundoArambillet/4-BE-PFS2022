@@ -11,6 +11,8 @@ import { CalculadoraController } from './calculadora/calculadora.controller';
 import { CalculadoraService } from './calculadora/calculadora.service';
 import { Computadora2Controller } from './computadora2/computadora2.controller';
 import { Computadora2Service } from './computadora2/computadora2.service';
+import { VehiculosController } from './vehiculos/vehiculos.controller';
+import { VehiculosService } from './vehiculos/vehiculos.service';
 
 @Module({
   imports: [
@@ -20,7 +22,7 @@ import { Computadora2Service } from './computadora2/computadora2.service';
   
       })
   ],
-  controllers: [AppController,ComputadoraController,TecnicoController,CalculadoraController,Computadora2Controller],
-  providers: [AppService,ComputadoraService,TecnicoService,CalculadoraService,Computadora2Service],
+  controllers: [AppController,ComputadoraController,TecnicoController,CalculadoraController,Computadora2Controller, VehiculosController],
+  providers: [AppService,ComputadoraService,TecnicoService,CalculadoraService,Computadora2Service, VehiculosService],
 })
 export class AppModule {}
