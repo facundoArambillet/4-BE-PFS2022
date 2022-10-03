@@ -1,9 +1,10 @@
-export default  abstract class Vehiculo {
+export default   class Vehiculo {
     private marca: string;
     private patente: string;
     private modelo: string;
     private anio: number;
     private precio: number;
+    protected tipo : string;
 
     public constructor(marca: string, patente: string, modelo: string, anio: number, precio: number) {
         this.marca = marca;
@@ -11,6 +12,7 @@ export default  abstract class Vehiculo {
         this.modelo = modelo;
         this.anio = anio;
         this.precio = precio;
+        this.tipo = "";
     }
 
     public getMarca(): string {
@@ -28,6 +30,9 @@ export default  abstract class Vehiculo {
     public getPrecio(): number {
         return this.precio;
     }
+    public getTipo(): string {
+        return this.tipo
+    }
 
     public setMarca(nuevaMarca): void {
         this.marca = nuevaMarca;
@@ -44,8 +49,10 @@ export default  abstract class Vehiculo {
     public setPrecio(nuevoPrecio): void {
         this.precio = nuevoPrecio;
     }
+    public setTipo(nuevoTipo: string): void {
+        this.tipo = nuevoTipo;
+    }
 
-    abstract getCapacidadDeCarga()
 
 
 }

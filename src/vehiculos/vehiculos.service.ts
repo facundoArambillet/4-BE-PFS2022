@@ -12,16 +12,19 @@ export class VehiculosService {
     constructor() { }
 
     public getVehiculos() {
+        //this.listaVehiculos.push(this.getAutos());
+        //this.listaVehiculos.push(this.getCamionetas());
         return this.listaVehiculos;
     }
 
     public getAutos() {
         let autos: Auto[] = []
         for (let i = 0; i < this.listaVehiculos.length; i++) {
-            if (this.listaVehiculos[i].getCapacidadDeCarga() == -1) {
+            if (this.listaVehiculos[i].getTipo() == "Auto") {
                 autos.push(this.listaVehiculos[i]);
             }
         }
+        this.listaVehiculos.push(autos);
         return autos;
     }
 
@@ -29,10 +32,11 @@ export class VehiculosService {
         let camionetas: Camioneta[] = [];
 
         for (let i = 0; i < this.listaVehiculos.length; i++) {
-            if (this.listaVehiculos[i].getCapacidadDeCarga() != -1 && this.listaVehiculos[i].getCapacidadDeCarga() != null) {
+            if (this.listaVehiculos[i].getTipo() =="Camioneta") {
                 camionetas.push(this.listaVehiculos[i]);
             }
         }
+        this.listaVehiculos.push(camionetas);
         return camionetas;
     }
 
@@ -52,19 +56,22 @@ export class VehiculosService {
  */
 
         for (let i = 0; i < nuevosVehiculos.length; i++) {
-            if (nuevosVehiculos[i].getCapacidadDeCarga() == -1) {
+            if (nuevosVehiculos[i].capacidadDeCarga == undefined) {
+            //    nuevosVehiculos[i].tipo = "Auto"
                 let nuevoAuto = new Auto(nuevosVehiculos[i].marca, nuevosVehiculos[i].patente, nuevosVehiculos[i].modelo,
                     nuevosVehiculos[i].anio, nuevosVehiculos[i].precio);
+                //    nuevoAuto.setTipo("Auto");
                 this.listaVehiculos.push(nuevoAuto);
             }
             else {
+             //   nuevosVehiculos[i].tipo = 'Camioneta'
                 let nuevaCamioneta = new Camioneta(nuevosVehiculos[i].marca, nuevosVehiculos[i].patente, nuevosVehiculos[i].modelo,
-                    nuevosVehiculos[i].anio, nuevosVehiculos[i].precio, nuevosVehiculos[i].getCapacidadDeCarga);
-
+                    nuevosVehiculos[i].anio, nuevosVehiculos[i].precio, nuevosVehiculos[i].capacidadDeCarga);
+               //     nuevaCamioneta.setTipo("Camioneta");
                 this.listaVehiculos.push(nuevaCamioneta);
             }
         }
-        console.log(nuevosVehiculos.modelo)
+        console.log(this.listaVehiculos)
     }
 
 }
