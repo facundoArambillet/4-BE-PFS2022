@@ -1,9 +1,9 @@
 export default   class Vehiculo {
-    private marca: string;
-    private patente: string;
-    private modelo: string;
-    private anio: number;
-    private precio: number;
+    protected marca: string;
+    protected patente: string;
+    protected modelo: string;
+    protected anio: number;
+    protected precio: number;
     protected tipo : string;
 
     public constructor(marca: string, patente: string, modelo: string, anio: number, precio: number) {
@@ -53,6 +53,11 @@ export default   class Vehiculo {
         this.tipo = nuevoTipo;
     }
 
+
+
+    public guardar(): string {
+        return `${this.marca},${this.patente},${this.modelo},${this.anio},${this.precio}`;
+    }
 
 
 }

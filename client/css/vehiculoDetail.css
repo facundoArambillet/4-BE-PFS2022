@@ -1,0 +1,16 @@
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+}
+
+div input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+#btnGuardar {
+    display: flex;
+    margin-left: auto;
+}

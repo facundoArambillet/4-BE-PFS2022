@@ -7,4 +7,9 @@ export default class Auto extends Vehiculo {
         this.tipo = "Auto";
     }
 
+
+
+    public guardar(): string {
+        return `${this.marca},${this.patente},${this.modelo},${this.anio},${this.precio}`;
+    }
 }

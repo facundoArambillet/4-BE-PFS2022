@@ -6,17 +6,15 @@ import * as fs from 'fs';
 
 @Injectable()
 export class VehiculosService {
-    private listaVehiculos: any[] = []
-    //   private listaCamionetas: Camioneta[] = []
-    //   private listaAutos: Auto[] = []
+    private listaVehiculos: any[] = [];
+
 
     constructor() {
-        this.loadVehiculos()
+        this.loadVehiculos();
     }
 
     public getVehiculos() {
-        //this.listaVehiculos.push(this.getAutos());
-        //this.listaVehiculos.push(this.getCamionetas());
+
         return this.listaVehiculos;
     }
 
@@ -43,25 +41,34 @@ export class VehiculosService {
         return camionetas;
     }
 
+    public getPatentes(patente: string) {
+        for (let i = 0; i < this.listaVehiculos.length; i++) {
+            if (this.listaVehiculos[i].getPatente() == patente) {
+                return this.listaVehiculos[i];
+            }
+            else {
+                return this.listaVehiculos;
+            }
+        }
+    }
 
-    public addVehiculos(nuevosVehiculos: any) {
-
+    public addVehiculos(nuevosVehiculos: any): string {
         for (let i = 0; i < nuevosVehiculos.length; i++) {
             if (nuevosVehiculos[i].capacidadDeCarga == undefined) {
                 let nuevoAuto = new Auto(nuevosVehiculos[i].marca, nuevosVehiculos[i].patente, nuevosVehiculos[i].modelo,
                     nuevosVehiculos[i].anio, nuevosVehiculos[i].precio);
 
                 this.listaVehiculos.push(nuevoAuto);
-                    
                 if (nuevoAuto.getMarca() && nuevoAuto.getPatente() && nuevoAuto.getModelo() && nuevoAuto.getAnio() && nuevoAuto.getPrecio()) {
-                    fs.appendFileSync('./resources/vehiculos.txt',
-                        `\n${nuevoAuto.getMarca()},${nuevoAuto.getPatente()},${nuevoAuto.getModelo()},${nuevoAuto.getAnio()},${nuevoAuto.getPrecio()}`);
-                        return "Ok";
+                    this.saveVehiculos();
+                    this.loadVehiculos();
+
+                    return "Auto creada";
                 }
                 else {
-                    return "Parametros incorrectos"
+                    return "Parametros incorrectos";
                 }
-                
+
             }
             else {
                 let nuevaCamioneta = new Camioneta(nuevosVehiculos[i].marca, nuevosVehiculos[i].patente, nuevosVehiculos[i].modelo,
@@ -71,13 +78,45 @@ export class VehiculosService {
 
                 if (nuevaCamioneta.getMarca() && nuevaCamioneta.getPatente() && nuevaCamioneta.getModelo() &&
                     nuevaCamioneta.getAnio() && nuevaCamioneta.getPrecio() && nuevaCamioneta.getCapacidadDeCarga()) {
-                    fs.appendFileSync('./resources/vehiculos.txt',
-                        `\n${nuevaCamioneta.getMarca()},${nuevaCamioneta.getPatente()},${nuevaCamioneta.getModelo()},${nuevaCamioneta.getAnio()},${nuevaCamioneta.getPrecio()},${nuevaCamioneta.getCapacidadDeCarga()}`);
+                    this.saveVehiculos();
+                    this.loadVehiculos();
+
+                    return "Camioneta creada";
+
+                }
+                else {
+                    return "Parametros incorrectos";
                 }
             }
         }
+    }
+
+
+    public updateVehiculo(nuevoVehiculo: any, id: number) {
+        if(nuevoVehiculo) {
+            this.listaVehiculos[id].setMarca(nuevoVehiculo.marca);
+            this.listaVehiculos[id].setPatente(nuevoVehiculo.patente);
+            this.listaVehiculos[id].setModelo(nuevoVehiculo.modelo);
+            this.listaVehiculos[id].setAnio(nuevoVehiculo.anio);
+            this.listaVehiculos[id].setPrecio(nuevoVehiculo.precio); 
+            this.listaVehiculos[id].setCapacidadDeCarga(nuevoVehiculo.capacidadDeCarga); 
+        }
+        this.saveVehiculos();
         this.loadVehiculos();
-       // this.saveVehiculos();
+
+    }
+
+    public deleteVehiculo(posicion: number): string {
+        if (this.listaVehiculos.splice(posicion, 1)) {
+            this.saveVehiculos();
+            this.loadVehiculos();
+            console.log(this.listaVehiculos.length);
+
+            return "Delete realizado";
+        }
+        else {
+            return "Error en el delete";
+        }
     }
 
     private loadVehiculos(): void {
@@ -85,7 +124,7 @@ export class VehiculosService {
         let archivo = fs.readFileSync('./resources/vehiculos.txt', 'utf8');
         let datos = archivo.split('\n').map(p => p.replace('\r', '')).map(p => p.split(','));
         let vehiculo: any;
-        this.listaVehiculos = [];
+
         for (let i = 0; i < datos.length; i++) {
             if (datos[i].length == 6) {
                 vehiculo = new Camioneta(datos[i][0], datos[i][1], datos[i][2], Number(datos[i][3]), Number(datos[i][4]), Number(datos[i][5]));
@@ -98,15 +137,16 @@ export class VehiculosService {
             }
         }
     }
-    /*
+
     private saveVehiculos(): void {
-        let archivo = fs.writeFileSync('./resources/vehiculos.txt', 'utf8');
-        for(let i = 0; i < this.listaVehiculos.length; i++) {
-            archivo =  fs.appendFileSync('./resources/vehiculos.txt',
-            `${this.listaVehiculos[i].getMarca()},${this.listaVehiculos[i].getPatente()},${this.listaVehiculos[i].getModelo()},${this.listaVehiculos[i].getAnio()},${this.listaVehiculos[i].getPrecio()}\n`);
+        let archivo = fs.writeFileSync('./resources/vehiculos.txt', '');
+        for (let i = 0; i < this.listaVehiculos.length; i++) {
+            let registro = this.listaVehiculos[i].guardar()
+            archivo = fs.appendFileSync('./resources/vehiculos.txt',
+                `${i == 0 ? '' : '\n'}${registro}`);
         }
 
     }
-    */
+
 }
 

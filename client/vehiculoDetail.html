@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/compuMundo.css">
+    <link rel="stylesheet" href="./css/vehiculoDetail.css">
     <title>Document</title>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
@@ -54,47 +53,34 @@
             </div>
         </div>
     </nav>
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1 class="text-center text-dark"> Arme su Vehiculo</h1>
-            </div>
+    <div class="contenedor">
+        <div class="titulo-datos">
+            <p>Marca</p>
+            <p>Modelo</p>
+            <p>Patente</p>
+            <p>Año</p>
+            <p>Precio</p>
+            <p>CapacidadDeCarga</p>
+        </div>
+        <div class="inputs-datos">
+            <input type="text" name="" value="" id="marca">
+            <input type="text" name="" value="" id="modelo">
+            <input type="text" name="" value="" id="patente">
+            <input type="text" name="" value="" id="año">
+            <input type="text" name="" value="" id="precio">
+            <input type="text" name="" value="" id="capacidadDeCarga">
+            <button id="btnGuardar">Guardar</button>
         </div>
     </div>
-    <table>
-        <thead>
-            <td>Marca</td>
-            <td>Modelo</td>
-            <td>Patente </td>
-            <td>Año</td>
-            <td>Precio </td>
-            <td>Capacidad de carga </td>
-        </thead>
+    
 
-        <thead>
-            <td><input type="text" name="" value="" id="marca"></td>
-            <td><input type="text" name="" value="" id="modelo"></td>
-            <td><input type="text" name="" value="" id="patente"></td>
-            <td><input type="text" name="" value="" id="año"></td>
-            <td><input type="text" name="" value="" id="precio"></td>
-            <td><input type="text" name="" value="" id="capacidadDeCarga"></td>
-        </thead>
-        <thead>
-            
-            <td colspan="4">
-                <button type="button" id="btnAgregar">Agregar</button>
-                <button type="button" id="btnBuscar">Buscar</button>
-            </td>
 
-        </thead>
-        <tbody id="tblVehiculos"></tbody>
-    </table>
-</body>
 
-<script src="./jss/vehiculos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
     crossorigin="anonymous"></script>
-
+    <script src="./jss/vehiculosDetail.js"></script>
+</body>
 </html>

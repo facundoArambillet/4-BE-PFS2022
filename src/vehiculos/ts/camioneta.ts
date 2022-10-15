@@ -20,4 +20,8 @@ export default class Camioneta extends Vehiculo {
     }
 
 
+    public guardar(): string {
+        return `${this.marca},${this.patente},${this.modelo},${this.anio},${this.precio},${this.capacidadDeCarga}`;
+    }
+
 }
